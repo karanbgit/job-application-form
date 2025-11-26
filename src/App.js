@@ -4,7 +4,6 @@ import Personal from './components/Personal';
 import Preferences from './components/Preferences';
 import Preview from './components/Preview';
 import { validateEmail, validatePhone, validateFile } from './utils/validation';
-import { jobRoles } from './data/jobRoles';
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -48,19 +47,28 @@ export default function App() {
 
   const validateStep2 = () => {
     const newErrors = {};
-    if (!formData.jobRole) newErrors.jobRole = 'Job role is required';
-    const selectedRole = jobRoles.find(r => r.role === formData.jobRole);
-    if (selectedRole) {
-      if (selectedRole.fields.includes('techStack') && !formData.techStack.trim()) {
+    if (!formData.jobRole) {
+      newErrors.jobRole = 'Job role is required';
+    }
+    
+    if (formData.jobRole === 'Frontend Developer' || formData.jobRole === 'Full Stack Developer') {
+      if (!formData.techStack.trim()) {
         newErrors.techStack = 'Tech stack is required';
       }
-      if (selectedRole.fields.includes('preferredLanguage') && !formData.preferredLanguage.trim()) {
+    }
+    
+    if (formData.jobRole === 'Backend Developer' || formData.jobRole === 'Full Stack Developer' || formData.jobRole === 'DevOps Engineer') {
+      if (!formData.preferredLanguage.trim()) {
         newErrors.preferredLanguage = 'Preferred language is required';
       }
-      if (selectedRole.fields.includes('portfolioUrl') && !formData.portfolioUrl.trim()) {
+    }
+    
+    if (formData.jobRole === 'Designer') {
+      if (!formData.portfolioUrl.trim()) {
         newErrors.portfolioUrl = 'Portfolio URL is required';
       }
     }
+    
     return newErrors;
   };
 
@@ -101,7 +109,6 @@ export default function App() {
           
           <ProgressBar currentStep={currentStep} />
           
-          {/* Content Area - Scrollable on small screens */}
           <div className="mt-4 md:mt-6 mb-4 md:mb-6">
             {currentStep === 0 && (
               <Personal 
@@ -124,7 +131,6 @@ export default function App() {
             )}
           </div>
           
-          {/* Fixed Navigation Buttons */}
           <div className="flex justify-between gap-3 pt-4 border-t border-gray-200">
             <button
               onClick={handleBack}

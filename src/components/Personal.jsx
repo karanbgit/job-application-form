@@ -22,7 +22,7 @@ const Personal = ({ formData, setFormData, errors, setErrors }) => {
 
   return (
     <div className="space-y-4 md:space-y-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Personal Details</h2>
+      <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Personal Details</h2>
       
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">

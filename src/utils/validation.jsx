@@ -10,6 +10,6 @@ export const validatePhone = (phone) => {
 
 export const validateFile = (file) => {
   if (!file) return false;
-  const maxSize = 2 * 1024 * 1024; // 2MB
+  const maxSize = 2 * 1024 * 1024;
   return file.size <= maxSize;
 };
