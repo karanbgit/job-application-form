@@ -1,17 +1,13 @@
 import React from 'react';
 import { validateFile } from '../utils/validation';
 
-// Step 1: Personal Details Form
 const Personal = ({ formData, setFormData, errors, setErrors }) => {
-  
-  // Handle input changes for text fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: '' })); // Clear error when typing
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
-  // Handle file upload
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -25,10 +21,9 @@ const Personal = ({ formData, setFormData, errors, setErrors }) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Personal Details</h2>
       
-      {/* Name Field */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Full Name *
@@ -46,7 +41,6 @@ const Personal = ({ formData, setFormData, errors, setErrors }) => {
         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
       </div>
 
-      {/* Email Field */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Email Address *
@@ -64,7 +58,6 @@ const Personal = ({ formData, setFormData, errors, setErrors }) => {
         {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
       </div>
 
-      {/* Phone Field */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Phone Number *
@@ -83,7 +76,6 @@ const Personal = ({ formData, setFormData, errors, setErrors }) => {
         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
       </div>
 
-      {/* Resume Upload Field */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Resume (PDF/DOC, max 2MB) *

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { jobRoles } from '../data/jobRoles';
 
-// Step 2: Job Preferences Form
 const Preferences = ({ formData, setFormData, errors, setErrors }) => {
   const [selectedRole, setSelectedRole] = useState(null);
 
-  // Find the selected role when jobRole changes
   useEffect(() => {
     if (formData.jobRole) {
       const role = jobRoles.find(r => r.role === formData.jobRole);
@@ -13,11 +11,8 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
     }
   }, [formData.jobRole]);
 
-  // Handle job role selection
   const handleRoleChange = (e) => {
     const role = jobRoles.find(r => r.role === e.target.value);
-    
-    // Reset dynamic fields when role changes
     setFormData(prev => ({ 
       ...prev, 
       jobRole: e.target.value,
@@ -25,12 +20,10 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
       preferredLanguage: '',
       portfolioUrl: ''
     }));
-    
     setSelectedRole(role);
     setErrors(prev => ({ ...prev, jobRole: '' }));
   };
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -38,10 +31,9 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Job Preferences</h2>
       
-      {/* Job Role Selection */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Select Job Role *
@@ -61,7 +53,6 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
         {errors.jobRole && <p className="text-red-500 text-sm mt-1">{errors.jobRole}</p>}
       </div>
 
-      {/* Dynamic Field: Tech Stack (for Frontend Developer) */}
       {selectedRole && selectedRole.fields.includes('techStack') && (
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -81,7 +72,6 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
         </div>
       )}
 
-      {/* Dynamic Field: Preferred Language (for Backend Developer) */}
       {selectedRole && selectedRole.fields.includes('preferredLanguage') && (
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -101,7 +91,6 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
         </div>
       )}
 
-      {/* Dynamic Field: Portfolio URL (for Designer) */}
       {selectedRole && selectedRole.fields.includes('portfolioUrl') && (
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
