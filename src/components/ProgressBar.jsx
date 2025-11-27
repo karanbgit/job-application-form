@@ -1,5 +1,7 @@
 import React from 'react';
 
+// ProgressBar component to indicate the current step in the multi-step form
+
 const ProgressBar = ({ currentStep }) => {
   const steps = ['Personal Details', 'Job Preferences', 'Preview & Submit'];
   const progress = ((currentStep + 1) / steps.length) * 100;

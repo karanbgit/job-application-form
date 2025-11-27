@@ -26,12 +26,14 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
     loadJobRoles();
   }, []);
 
+
   useEffect(() => {
     if (formData.jobRole) {
       const role = jobRoles.find(r => r.role === formData.jobRole);
       setSelectedRole(role);
     }
   }, [formData.jobRole, jobRoles]);
+
 
   const handleRoleChange = (e) => {
     const role = jobRoles.find(r => r.role === e.target.value);
@@ -46,11 +48,15 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
     setErrors(prev => ({ ...prev, jobRole: '' }));
   };
 
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     setErrors(prev => ({ ...prev, [name]: '' }));
   };
+
+
 
   const handleRetry = () => {
     setLoading(true);
@@ -60,6 +66,8 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
       .catch(err => setError(err.message))
       .finally(() => setLoading(false));
   };
+
+
 
   return (
     <div className="space-y-4 md:space-y-6">
@@ -153,6 +161,7 @@ const Preferences = ({ formData, setFormData, errors, setErrors }) => {
             </div>
           )}
 
+          
           {selectedRole && selectedRole.fields.includes('portfolioUrl') && (
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">

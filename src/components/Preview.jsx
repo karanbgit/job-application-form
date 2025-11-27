@@ -6,6 +6,8 @@ const Preview = ({ formData }) => {
   const showPortfolioUrl = formData.jobRole === 'Designer';
 
   return (
+    
+    // Preview component to display entered data before submission
     <div className="space-y-4 md:space-y-6 w-full">
       <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Preview & Submit</h2>
       
@@ -33,6 +35,7 @@ const Preview = ({ formData }) => {
           </div>
         </div>
 
+        // Job Preferences Section
         <div className="pt-2">
           <h3 className="text-base md:text-lg font-semibold text-gray-700 mb-3 md:mb-4">Job Preferences</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">

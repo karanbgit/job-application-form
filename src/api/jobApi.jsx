@@ -1,4 +1,4 @@
-// Your MockAPI URL
+// MockAPI URL
 const API_URL = 'https://6927655db35b4ffc5011d54a.mockapi.io/jobRoles';
 
 // Function to fetch job roles from MockAPI

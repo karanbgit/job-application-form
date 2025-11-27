@@ -1,3 +1,6 @@
+
+// Validation for email, phone, and file size
+
 export const validateEmail = (email) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);

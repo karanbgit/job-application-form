@@ -33,6 +33,9 @@ export default function App() {
     localStorage.setItem('jobAppForm', JSON.stringify(dataToSave));
   }, [formData]);
 
+
+  //Validation functions for each step
+
   const validateStep1 = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = 'Name is required';
@@ -45,6 +48,7 @@ export default function App() {
     return newErrors;
   };
 
+  // Validation for Step 2
   const validateStep2 = () => {
     const newErrors = {};
     if (!formData.jobRole) {
@@ -72,6 +76,7 @@ export default function App() {
     return newErrors;
   };
 
+  // Navigation handlers
   const handleNext = () => {
     let validationErrors = {};
     if (currentStep === 0) {
