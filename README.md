@@ -20,10 +20,6 @@ Step 3: Preview & Submit |
 <img width="1918" height="976" alt="Preview and submit" src="https://github.com/user-attachments/assets/67dc85d6-8b25-4be5-9089-571609ec7b70" />
 
 
-![Step 2](./screenshots/step2-job-preferences.png) | 
-![Step 1](./screenshots/step1-personal-details.png) |
-![Step 3](./screenshots/step3-preview-submit.png) |
-
 ## ✨ Features
 
 - 🎯 Multi-step form with visual progress bar
