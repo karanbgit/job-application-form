@@ -1,70 +1,165 @@
-# Getting Started with Create React App
+# 📝 Multi-Step Job Application Form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive job application form built with React.js and Tailwind CSS that fetches job roles dynamically from MockAPI.
 
-## Available Scripts
+1. ![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react) 
 
-In the project directory, you can run:
+2. ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?logo=tailwind-css) 
 
-### `npm start`
+3. ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📸 Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Step 1: Personal Details |
+![Step 1](./screenshots/step1-personal-details.png) |
 
-### `npm test`
+Step 2: Job Preferences |
+![Step 2](./screenshots/step2-job-preferences.png) | 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Step 3: Preview & Submit |
+![Step 3](./screenshots/step3-preview-submit.png) |
 
-### `npm run build`
+## ✨ Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 🎯 Multi-step form with visual progress bar
+- 🔄 Dynamic fields based on selected job role
+- 🌐 Real-time API integration with MockAPI.io
+- ✅ Form validation with inline error messages
+- 📱 Fully responsive (mobile, tablet, desktop)
+- 💾 Auto-save with localStorage
+- 📄 File upload with validation (max 2MB)
+- 🎉 Success toast notifications
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Quick Start
+```bash
+# Clone repository
+git clone https://github.com/karanbgit/job-application-form.git
+cd job-application-form
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+npm install
 
-### `npm run eject`
+# Start development server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📋 Form Steps
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Step 1: Personal Details** - Name, Email (valid format), Phone (10 digits), Resume (PDF/DOC, ≤2MB)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Step 2: Job Preferences** - Select job role (fetched from API), dynamic fields appear based on selection:
+- Frontend Developer → Tech Stack
+- Backend Developer → Preferred Language  
+- Designer → Portfolio URL
+- Full Stack Developer → Tech Stack + Preferred Language
+- DevOps Engineer → Preferred Language
 
-## Learn More
+**Step 3: Preview & Submit** - Review all data, edit if needed, submit form
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ Tech Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React.js - UI library
+- Tailwind CSS - Styling framework
+- MockAPI.io - Mock REST API
+- LocalStorage - Form data persistence
+- JavaScript ES6+ - Modern JavaScript
 
-### Code Splitting
+## 📦 Project Structure
+```
+src/
+├── api/
+│   └── jobApi.js           # API integration
+├── components/
+│   ├── ProgressBar.js      # Progress indicator
+│   ├── Personal.js         # Step 1 form
+│   ├── Preferences.js      # Step 2 form with API
+│   └── Preview.js          # Step 3 preview
+├── utils/
+│   └── validation.js       # Validation functions
+├── App.js                  # Main component
+├── index.js                # Entry point
+└── index.css               # Global styles
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔧 Configuration
 
-### Analyzing the Bundle Size
+The API endpoint is configured in `src/api/jobApi.js`:
+```javascript
+const API_URL = 'https://6927655db35b4ffc5011d54a.mockapi.io/jobRoles';
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Expected API Response:**
+```json
+[
+  { "id": "1", "role": "Frontend Developer", "fields": ["techStack"] },
+  { "id": "2", "role": "Backend Developer", "fields": ["preferredLanguage"] }
+]
+```
 
-### Making a Progressive Web App
+## 📱 Responsive Breakpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Mobile: < 640px
+- Tablet: 640px - 768px  
+- Desktop: > 768px
 
-### Advanced Configuration
+## ✅ Validation Rules
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+| Field | Rule |
+|-------|------|
+| Name | Required, non-empty |
+| Email | Required, valid format |
+| Phone | Required, exactly 10 digits |
+| Resume | Required, ≤2MB |
+| Job Role | Required selection |
+| Dynamic Fields | Required based on role |
 
-### Deployment
+## 🧪 Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fill Step 1 with valid data → Click "Next"
+2. Select job role in Step 2 → Fill dynamic fields → Click "Next"  
+3. Review data in Step 3 → Click "Submit"
+4. Check browser console (F12) to see submitted data
 
-### `npm run build` fails to minify
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions welcome! Fork the repo, create a feature branch, commit changes, and open a pull request.
+```bash
+git checkout -b feature/your-feature
+git commit -m 'Add feature'
+git push origin feature/your-feature
+```
+
+## 🔮 Future Enhancements
+
+- [ ] Dark mode toggle
+- [ ] Email notifications
+- [ ] PDF export of application
+- [ ] Unit & E2E tests
+- [ ] Multi-language support
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file
+
+## 👤 Author
+
+**Karan Barale**
+
+- GitHub: [@karanbgit](https://github.com/karanbgit)
+- LinkedIn: [Karan Barale](https://www.linkedin.com/in/karan-barale)
+- Email: karanbarale7047@gmail.com
+- Phone: +91 9503087047
+
+## 🙏 Acknowledgments
+
+- React Team for React.js
+- Tailwind Labs for Tailwind CSS
+- MockAPI.io for free API services
+
+---
+
+⭐ **If this project helped you, please give it a star!** ⭐
+
+Made with ❤️ by [Karan Barale](https://github.com/karanbgit)
