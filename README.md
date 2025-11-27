@@ -11,12 +11,17 @@ A modern, responsive job application form built with React.js and Tailwind CSS t
 ## 📸 Screenshots
 
 Step 1: Personal Details |
-![Step 1](./screenshots/step1-personal-details.png) |
+<img width="1907" height="961" alt="Personal Details" src="https://github.com/user-attachments/assets/9b0941f5-c59b-49b7-ab85-8b89cb03d7b7" />
 
 Step 2: Job Preferences |
-![Step 2](./screenshots/step2-job-preferences.png) | 
+<img width="1918" height="970" alt="Job Preferences" src="https://github.com/user-attachments/assets/2a71ed9d-f418-441c-8976-33215e74aaae" />
 
 Step 3: Preview & Submit |
+<img width="1918" height="976" alt="Preview and submit" src="https://github.com/user-attachments/assets/67dc85d6-8b25-4be5-9089-571609ec7b70" />
+
+
+![Step 2](./screenshots/step2-job-preferences.png) | 
+![Step 1](./screenshots/step1-personal-details.png) |
 ![Step 3](./screenshots/step3-preview-submit.png) |
 
 ## ✨ Features
